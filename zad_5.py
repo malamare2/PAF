@@ -9,7 +9,7 @@ def pravac():
 
     a = (y2-y1)/(x2-x1)
     b = y1-a*x1
-    print("y =",a,"x +",b)
+    return("y =",a,"x +",b)
 
 pravac()
 
