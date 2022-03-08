@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 def pravac():
     
@@ -19,9 +20,12 @@ def pravac():
 
         if f == c:
             plt.plot([x1,x2],[y1,y2])
+            plt.scatter([x1,x2],[y1,y2])
             plt.show()
+
         elif f == d:
             plt.plot([x1,x2],[y1,y2])
+            plt.scatter([x1,x2],[y1,y2])
             plt.savefig(input("ime: "), dpi='figure', format=None, metadata=None, bbox_inches=None, pad_inches=0.1, facecolor='auto', edgecolor='auto',backend=None)
         else:
             print("ponovi")
