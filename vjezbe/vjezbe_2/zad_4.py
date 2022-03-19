@@ -3,12 +3,10 @@ import matplotlib.pyplot as plt
 import math
 
 
-def kosi_hitac(theta,v0):
+def kosi(theta,v0):
 
-    t = 10
     dt = 0.01
     g = 9.81
-
 
     v0x = v0*math.cos((theta/360)*2*np.pi)
     v0y = v0*math.sin((theta/360)*2*np.pi)
@@ -35,11 +33,31 @@ def kosi_hitac(theta,v0):
         Y.append(y0)
         T.append(t0)
 
-        if y0 < 0:
+
+        if y0 < 0:    #ako visina padne ispod 0 prekida se i crta samo do tu
             break
 
     plt.title("x/y graf")
     plt.plot(X,Y)
     plt.show()
 
-kosi_hitac(60,5)
+    def hmax(Y):         #max visina koju tijelo postigne
+        Y.sort()         
+        print("maksimalna visina:",Y[-1])
+    hmax(Y)
+
+    def dom(X):
+        print("domet:",X[-1])  #domet tijela(tocka na koju je palo tijelo)
+    dom(X)
+
+    def vmax(V):
+        V.sort()
+        print("maksimalna brzina:",V[-1])    #maksimalna brzina koju tijelo postigne
+    vmax(V)
+
+kosi(60,5)
+
+
+
+
+
