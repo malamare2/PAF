@@ -17,10 +17,10 @@ def kosi_hitac(theta,v0):
     x0 = 0
     t0 = 0
 
-    X = []
-    Y = []
-    T = []
-    V = []
+    X = [0]
+    Y = [0]
+    T = [0]
+    V = [0]
 
     for i in range(100):
         t0 = t0 + dt   #na staro vrijeme dodajem novo vrijeme
