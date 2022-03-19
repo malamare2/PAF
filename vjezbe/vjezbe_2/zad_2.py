@@ -40,11 +40,13 @@ def kosi_hitac(theta,v0):
         bottom = 0.1, right = 0.95, left = 0.1, top = 0.9
     )
     plt.subplot(1,3,1)
+    plt.title("y/t graf")
     plt.plot(T,Y)
     plt.subplot(1,3,2)
+    plt.title("x/t graf")
     plt.plot(T,X)
     plt.subplot(1,3,3)
+    plt.title("y/x graf")
     plt.plot(X,Y)
     plt.show()
 
-kosi_hitac(60,5)
