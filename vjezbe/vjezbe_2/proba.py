@@ -32,27 +32,34 @@ def hitac(theta,v0):
         if y0 < 0:    #ako visina padne ispod 0 prekida se i crta samo do tu
             break
 
-    p = 3
-    q = 5
+    p = 7
+    q = 0
     r = 0.5
 
-    Y.sort()
-        #k = p - i
-    print(Y)
+
+    lista1 = []
+    lista2 = []
+
     for j in X:
         c = p - j
+        f = (p-c)*(p-c)
+        lista1.append(f)
 
-    #lista = [k]
-    #print(lista)
-
-    #d = (p-c)*(p-c)+(q-k)*(q-k)        #udaljenost točke od središta kružnice(jednadžba kružnice)
-    #print(d)
-
+    for i in Y:
+        k = q - i
+        l = (q-k)*(q-k)
+        lista2.append(l)
     
+    lista = []
+    for o in lista1:
+        for s in lista2:
+            d = sqrt(o + s)
+            lista.append(d)
 
-    #lista = []
-    #lista.append(d)
-    #lista.sort()
+
+    lista.sort()   
+    print(lista[0])
+            
 
 
     kut = np.linspace( 0, 2 * np.pi)              #kružnica

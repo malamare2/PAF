@@ -43,7 +43,7 @@ def kosi(theta,v0):
 
 
 
-    def kruznica(p,q,r):
+    def meta(p,q,r):
         domet = X[-1]     #tocka gdje tijelo pada
   
         razmak = (p-r) - domet   #udaljenost izmedu kruznice i mjesta gdje je palo tijelo
@@ -69,8 +69,7 @@ def kosi(theta,v0):
         plt.scatter(p, q)
         plt.plot(X,Y)
         plt.show()
-
-    kruznica(3,0,0.5)
+    meta(3,0,0.5)
 
 
 
@@ -89,6 +88,4 @@ def kosi(theta,v0):
     vmax(V)
 
 
-    
-    
-kosi(60,5)
+
