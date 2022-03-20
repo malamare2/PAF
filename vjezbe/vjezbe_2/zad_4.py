@@ -41,6 +41,39 @@ def kosi(theta,v0):
     plt.plot(X,Y)
     plt.show()
 
+
+
+    def kruznica(p,q,r):
+        domet = X[-1]     #tocka gdje tijelo pada
+  
+        razmak = (p-r) - domet   #udaljenost izmedu kruznice i mjesta gdje je palo tijelo
+
+        if p - r > domet:
+            print("Tocka je pala izvan mete na udaljenosti",razmak,"od mete")
+        elif p -r == domet:
+            print("Tocka je pala na rub mete")
+        else:
+            print("Tocka je pala unutar mete")
+
+
+        kut = np.linspace( 0, 2 * np.pi)              #kružnica
+
+        a = r * np.cos(kut) + p                     #parametri
+        b = r * np.sin(kut) + q
+ 
+        figure, axes = plt.subplots(1)
+ 
+        axes.plot(a, b)
+        axes.set_aspect(1)
+
+        plt.scatter(p, q)
+        plt.plot(X,Y)
+        plt.show()
+
+    kruznica(3,0,0.5)
+
+
+
     def hmax(Y):         #max visina koju tijelo postigne
         Y.sort()         
         print("maksimalna visina:",Y[-1])
@@ -55,9 +88,7 @@ def kosi(theta,v0):
         print("maksimalna brzina:",V[-1])    #maksimalna brzina koju tijelo postigne
     vmax(V)
 
+
+    
+    
 kosi(60,5)
-
-
-
-
-
