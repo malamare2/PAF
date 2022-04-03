@@ -8,7 +8,7 @@ p1.set_initial_conditions(40, 10)
 
 odstupanje = abs(((p1.analiticki(40) - p1.range(0.01)))/p1.analiticki(40))*100
 print("odstupanje je:",odstupanje)
-
+print(p1.range(0.1))
 
 # graf greške
 
@@ -18,11 +18,12 @@ pogreska = []
     
 for i in range(1000):
     p1.set_initial_conditions(60, 10)
-    promjena = i * 0.001 + 0.001
+    promjena = i * 0.001
     p.append(promjena)
     pogreska1 = abs(((p1.analiticki(60) - p1.range(promjena)))/p1.analiticki(40))*100
     pogreska.append(pogreska1)
     p1.reset()
+
 
 plt.plot(p, pogreska)
 plt.show()
