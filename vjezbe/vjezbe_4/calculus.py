@@ -37,9 +37,15 @@ def integ_pravokutnik(f, a, b, n):
     sum_b = 0        # donja međa
     sum_a = 0        # gornja međa
 
+    x = a
+    y = a+dx
+
     for i in range(n):
-        sum_a = sum_a + f(a)*dx
-        sum_b = sum_b + f(a+dx)*dx
+        sum_a = sum_a + f(x)*dx
+        sum_b = sum_b + f(y)*dx
+
+        x = x+dx
+        y = y+dx
 
     return (sum_a, sum_b)
 
@@ -48,7 +54,7 @@ def integ_traspez(f, a, b, n):
 
     dx = (b-a)/n
     suma = 0
-
+ 
     for i in range(n):
         suma = suma + f(a)
         a = a + dx

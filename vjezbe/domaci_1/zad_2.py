@@ -23,23 +23,23 @@ for kut in range(180):
 plt.plot(kutlista,dometlista)
 plt.show()
 
-#2.graf
+# #2.graf
 
-dometlista = []
-brzinalista = []
+# dometlista = []
+# brzinalista = []
 
-p1 = prt.Particle(60, 30, 20, 50, 0.01)
+# p1 = prt.Particle(60, 30, 20, 50, 0.01)
 
-for brzina in range(100):
-    p1.set_initial_conditions(60, 30, 20, brzina, 0.01)
+# for brzina in range(100):
+#     p1.set_initial_conditions(60, 30, 20, brzina, 0.01)
 
-    brzinalista.append(brzina)
+#     brzinalista.append(brzina)
 
-    domet = p1.range()
-    dometlista.append(domet)
+#     domet = p1.range()
+#     dometlista.append(domet)
 
-plt.plot(brzinalista, dometlista)
-plt.show()
+# plt.plot(brzinalista, dometlista)
+# plt.show()
 
 #3.graf
 
@@ -60,22 +60,22 @@ for kut in range(180):
 plt.plot(kutlista ,trajanjelista)
 plt.show()
 
-#4.graf
+# #4.graf
 
-trajanjelista = []
-brzinalista = []
+# trajanjelista = []
+# brzinalista = []
 
-p1 = prt.Particle(60, 30, 20, 50, 0.01)
+# p1 = prt.Particle(60, 30, 20, 50, 0.01)
 
-for brzina in range(100):
-    p1.set_initial_conditions(60, 30, 20, brzina, 0.01)
+# for brzina in range(100):
+#     p1.set_initial_conditions(60, 30, 20, brzina, 0.01)
 
-    brzinalista.append(brzina)
+#     brzinalista.append(brzina)
 
-    trajanje = p1.total_time()
-    trajanjelista.append(trajanje)
+#     trajanje = p1.total_time()
+#     trajanjelista.append(trajanje)
 
-plt.plot(brzinalista ,trajanjelista)
-plt.show()
+# plt.plot(brzinalista ,trajanjelista)
+# plt.show()
 
 

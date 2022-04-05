@@ -17,7 +17,7 @@ trapez = []
 korak = []
 analiticki = []
 
-for e in range(1, 15):
+for e in range(1, 50):
     n = e*dn
     korak.append(n)
     g = a.integ_pravokutnik(f1, 0, 9, n)[0]
