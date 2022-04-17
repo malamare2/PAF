@@ -26,9 +26,8 @@ class sila:
         self.a = 0
 
     def move(self, t):
-        
-        N = int(t/self.dt)
-        for i in range(N):
+        for i in range(int(t/self.dt)):
+            
             self.f = self.func(self.vi, self.xi, self.ti)
             self.ai = self.f/self.m
 
