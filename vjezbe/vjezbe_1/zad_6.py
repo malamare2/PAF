@@ -16,6 +16,7 @@ def kruznica():
 
     a = r * np.cos(kut) + x                     #parametri
     b = r * np.sin(kut) + y
+    
  
     figure, axes = plt.subplots(1)
  

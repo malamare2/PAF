@@ -60,3 +60,4 @@ def integ_traspez(f, a, b, n):
         a = a + dx
         trapez = suma * dx + ((f(b) + f(a))/2)*dx
     return(trapez)
+
