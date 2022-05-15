@@ -63,7 +63,6 @@ class projectile:
         self.range1(dt)
         return self.x, self.y
 
-
     def akcx(self, x, v, t):
         return -((self.r * self.c *self.a)/(2*self.m))*(self.vx[-1])**2
 
@@ -73,25 +72,19 @@ class projectile:
     def runge_kutta(self):
         self.k1vx = self.akcx(self.x[-1], self.vx[-1], self.t[-1])* self.dt
         self.k1x = self.vx[-1] * self.dt
-
         self.k2vx = self.akcx((self.x[-1] + self.k1x/2), (self.vx[-1] + self.k1x/2), (self.t[-1] + self.dt/2))* self.dt
         self.k2x = (self.vx[-1] + (self.k1vx/2)) * self.dt
-
         self.k3vx = self.akcx((self.x[-1] + self.k2x/2), (self.vx[-1] + self.k2x/2), (self.t[-1] + self.dt/2))*self.dt
         self.k3x = (self.vx[-1] + (self.k2vx/2)) * self.dt
-
         self.k4vx = self.akcx((self.x[-1] + self.k3x), (self.vx[-1] + self.k3vx), (self.t[-1] + self.dt)) * self.dt
         self.k4x = self.vx[-1] * self.dt
 
         self.k1vy = self.akcy(self.y[-1], self.vy[-1], self.t[-1])* self.dt
         self.k1y = self.vy[-1] * self.dt
-
         self.k2vy = self.akcy((self.y[-1] + self.k1y/2), (self.vy[-1] + self.k1y/2), (self.t[-1] + self.dt/2))* self.dt
         self.k2y = (self.vy[-1] + (self.k1vy/2)) * self.dt
-
         self.k3vy = self.akcy((self.y[-1] + self.k2y/2), (self.vy[-1] + self.k2y/2), (self.t[-1] + self.dt/2))*self.dt
         self.k3y = (self.vy[-1] + (self.k2vy/2)) * self.dt
-
         self.k4vy = self.akcy((self.y[-1] + self.k3y), (self.vy[-1] + self.k3vy), (self.t[-1] + self.dt)) * self.dt
         self.k4y = self.vy[-1] * self.dt
         
