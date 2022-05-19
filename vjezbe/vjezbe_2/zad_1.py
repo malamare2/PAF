@@ -31,8 +31,7 @@ def jednoliko_gibanje(F,m):
 
     fig = plt.subplots(1,3,figsize = (13,4))
     plt.subplots_adjust(
-        bottom = 0.1, right = 0.95, left = 0.1, top = 0.9
-    )
+        bottom = 0.1, right = 0.95, left = 0.1, top = 0.9)
     plt.subplot(1,3,1)
     plt.title("a/t graf")
     plt.plot(t,a)
