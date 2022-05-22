@@ -124,8 +124,6 @@ class projectile:
                 udaljenost = ((self.x[i]-p)**2) + ((self.y[i]-q)**2)
                 if udaljenost < (r**2): 
                     pogodio = False
-            kut = kut + 0.1
-            self.kut = (kut/180)*pi
         return kut
         
 
