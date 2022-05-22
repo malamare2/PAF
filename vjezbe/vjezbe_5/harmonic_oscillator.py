@@ -14,6 +14,7 @@ class HarmonicOscillator:
         self.x0 = x0
         self.v0 = v0
         self.dt = dt
+        
         self.x.append(x0)
         self.v.append(v0)
         self.t.append(0)

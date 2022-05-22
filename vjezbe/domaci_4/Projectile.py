@@ -110,26 +110,31 @@ class projectile:
             self.a = self.osnovic**2
 
         elif self.ku == 1:
-            d = 2 * self.osnovic
+            d = 2*self.osnovic
             self.povrsina = ((d)**2)*pi/4
 
-    def meta(self, p, q, r, kut = 0):
+    def meta(self, p, q, r):
+        kut = 0
         pogodio = True
         self.kut = (kut/180)*pi
         while pogodio:
             self.runge()
-            for i in range(len(self.x)):
+            s = len(self.x)
+            for i in range(s):
                 udaljenost = ((self.x[i]-p)**2) + ((self.y[i]-q)**2)
                 if udaljenost < (r**2): 
                     pogodio = False
             kut = kut + 0.1
             self.kut = (kut/180)*pi
-            if kut > 180:
-                break
-            if pogodio == True:
-                self.runge()
-        if kut < 180:    
-            return kut
+        return kut
+        
 
+    def slika(self,p,q,r):
+        kut = self.meta(p,q,r)
+        Circle = plt.Circle((p,q),r)
+        fig, ax = plt.subplots()
+        ax.add_patch(Circle)
+        plt.plot(self.x,self.y)
+        plt.show()
     
 
