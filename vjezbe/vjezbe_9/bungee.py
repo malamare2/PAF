@@ -1,9 +1,7 @@
 class Bungee:
     def __init__(self):
-        self.y = []
+        self.y = [] #visina
         self.t = []
-        self.akc = []
-        self.v = []
 
         self.Ep = []
         self.Ek = []
@@ -25,10 +23,8 @@ class Bungee:
 
         self.y.append(h)
         self.t.append(0)
-        self.v.append(0)
-        self.akc.append(self.g)
         
-        self.Ep.append(self.m*(-self.akc)*(self.y[-1]))
+        self.Ep.append(self.m * 9.81 * self.h)
         self.Ek.append(0)
         self.Eel.append(0)
         self.Euk.append(self.Ep[-1] + self.Ek[-1] + self.Eel[-1])
@@ -42,8 +38,33 @@ class Bungee:
         self.a = 0
         self.h = 0
 
-    def move(self):
+    def akcy(self, y, v, t):
+        return - self.g - ((self.r*self.c*self.a)/(2*self.m))/(self.vy[-1])**2
 
-        self.t.append(self.t[-1]+self.dt)
-        self.v.append(self.v[-1]+self.akc[-1]*self.dt)
-        self.y.append(self.y[-1]+self.v[-1]*self.dt)
+    def energija(self):
+        self.Ep = self.m * 9.81 * self.h
+        self.Ek = 0.5*self.m*(self.v0)**2
+        self.Euk = self.Ep + self.Ek + self.Eel
+        return self.Euk
+
+        
+
+    def __move(self):
+        self.a = self.akcy()
+
+        self.v0 += self.a*self.dt
+        self.h += self.v0*self.dt
+        self.t += self.dt
+        
+        self.energija()
+
+    def move(self,t):
+        while self.t < t:
+            self.__move()
+            self.h.append(self.h)
+            self.t.append(self.t)
+            self.Eel.append(self.Eel)
+            self.Ek.append(self.Ek)
+            self.Ep.append(self.Ep)
+            self.Euk.append(self.Euk)
+
