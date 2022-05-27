@@ -1,46 +1,29 @@
-import harmonic_oscillator as h
+import harmonic_oscillator as ho
 import matplotlib.pyplot as plt
 import math
-from math import *
-
-h1 = h.HarmonicOscillator()
-h1.set_initial_conditions(3, 100, 0, 5, 0.01)
-h1.oscilate(3)
-h1.graf()
 
 
-h1.oscilate(3)
-fig, axes = plt.subplots(1, 3, figsize=(13, 4))
+ho1 = ho.HarmonicOscillator()
+ho2 = ho.HarmonicOscillator()
+ho1.set_initial_conditions(3, 0, 5, 15, 0.1, 0.01)
+ho2.set_initial_conditions(3, 0, 5, 15, 0.1, 0.05)
+t1, a1, v1, x1 = ho1.tocnost()
+t2, a2, v2, x2 = ho2.tocnost()
 
-h1.set_initial_conditions(3, 10, 0, 5, 0.001)
-axes[0].scatter(h1.t, h1.x)
+fig = plt.subplots(1, 3, figsize=(13, 4))
 
-h1.set_initial_conditions(3, 10, 0, 5, 0.01)
-axes[1].scatter(h1.t, h1.x)
+plt.subplot(1,3,1)
+plt.plot(t1, x1)
+plt.scatter(t2, x2)
 
-h1.set_initial_conditions(3, 10, 0, 5, 0.05)
-axes[2].scatter(h1.t, h1.x)
+plt.subplot(1,3,2)
+plt.plot(t1, v1)
+plt.scatter(t2, v2)
+
+plt.subplot(1,3,3)
+plt.plot(t1, a1)
+plt.scatter(t2, a2)
 
 plt.show()
 
 
-#ne radi
-
-# fig, axes = plt.subplots(1, 3, figsize=(13, 4))
-
-# h2 = h.HarmonicOscillator()
-# h2.oscilate(3)
-# h2.set_initial_conditions(3, 10, 0, 5, 0.001)
-# axes[0].plot(h2.t, h2.x)
-
-# h3 = h.HarmonicOscillator()
-# h3.oscilate(3)
-# h3.set_initial_conditions(3, 10, 0, 5, 0.01)
-# axes[1].plot(h3.t, h3.x)
-
-# h4 = h.HarmonicOscillator()
-# h4.oscilate(3)
-# h4.set_initial_conditions(3, 10, 0, 5, 0.05)
-# axes[2].plot(h4.t, h4.x)
-
-# plt.show()
