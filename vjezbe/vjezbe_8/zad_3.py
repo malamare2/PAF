@@ -2,7 +2,7 @@ import Projectile as pct
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+#promjena koeficjenta trenja
 c_lista = list(np.linspace(0, 3, 30))
 range_l=[]
 p1 = pct.projectile()
@@ -16,7 +16,7 @@ plt.plot(c_lista, range_l)
 plt.show()
 
 
-
+#promjena mase cestice
 m_lista = list(np.linspace(0.01, 10, 50))
 range_l=[]
 p2 = pct.projectile()

@@ -3,6 +3,7 @@ import numpy as np
 import math
 
 class Particle:
+    
     def __init__(self):
         self.x = []
         self.y = []
@@ -26,17 +27,17 @@ class Particle:
         self.y.append(self.y0)
         self.z.append(self.z0)
         self.t.append(self.t0)
-
+    
     def reset(self):
         self.E = 0
         self.B = 0
         self.v = 0
-        self.q = 0
-        self.m = 0
-        
+        self.q = 0 
+        self.m = 0    
+
     def move(self):
         self.t.append(self.t[-1] + self.dt)
-        self.a = (self.q/self.m)*(self.E + np.cross(self.v, self.B))  #gibanje cestice 2.n.zakon, lorentsove sile( vektorsko mnozenje)
+        self.a = (self.q/self.m)*(self.E(self.t) + np.cross(self.v, self.B(self.t)))
         self.v = self.v + self.a*self.dt
         self.x.append(self.x[-1] + self.v[0]*self.dt)
         self.y.append(self.y[-1] + self.v[1]*self.dt)
@@ -45,8 +46,8 @@ class Particle:
     def akc(self, v):
         return self.q/self.m * (self.E +np.cross(v, self.B))
 
-    def runge_kutta(self):
-        self.t.append(self.t[-1] + self.dt)
+    def runge_kutta(self, dt):
+        self.t = self.t + dt
         self.k1v = self.akc(self.v) *self.dt
         self.k1 = self.v*self.dt
         self.k2v = self.akc(self.v + self.k1v/2) * self.dt
@@ -63,11 +64,12 @@ class Particle:
         self.z.append(self.z[-1] + (1/6)*(self.k1[2] + 2*self.k2[2] + 2*self.k3[2] + self.k4[2]))
     
     def range(self, t_uk):
-        while self.t[-1] <= t_uk:
+        while self.t <= t_uk:
             self.move()
         return self.x, self.y, self.z
-
+    
     def runge(self, t_uk):
         while self.t[-1] <= t_uk:
             self.runge_kutta()
-        return self.x, self.y, self.z        
+        return self.x, self.y, self.z   
+

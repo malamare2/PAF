@@ -22,9 +22,9 @@ class projectile:
         self.y0 = y0
         self.x0 = x0
         self.m = m
-        self.r = r
-        self.c = c
-        self.a = a
+        self.r = r  #gustoca
+        self.c = c  #koef.trenja
+        self.a = a   #povrsina tijela
       
         self.x.append(0)
         self.y.append(0)
@@ -47,7 +47,7 @@ class projectile:
     def move(self, dt):
 
         self.t.append(self.t[-1]+dt)
-        self.ax.append(-((self.r * self.c *self.a)/(2*self.m))*(self.vx[-1])**2)
+        self.ax.append(-((self.r * self.c *self.a)/(2*self.m))*(self.vx[-1])**2)   #dodan otpor zraka
         self.ay.append(-self.g-((self.r * self.c * self.a)/(2*self.m))*(self.vy[-1])**2)
         self.vx.append(self.vx[-1]+self.ax[-1]*dt)
         self.vy.append(self.vy[-1]+self.ay[-1]*dt)
