@@ -11,7 +11,7 @@ class Z_S:
         self.ys = []
         self.t = []
     
-    def set_initial_conditions(self, rz, rs, vz, vs, az, asu):   #za sunce (2.) i zemlju (1.)
+    def set_initial_conditions(self, rz, rs, vz, vs, az, asu):  
         self.rz = rz
         self.rs = rs
         self.vz = vz
@@ -59,8 +59,8 @@ class Z_S:
             self.sunce()
             self.t.append(self.t[-1] + self.dt)
         
-            self.a1 = -self.G*(self.ms / self.n1**3 )*(self.rz - self.rs)
-            self.a2 = -self.G*(self.mz / self.n2**3 )*(self.rs - self.rz)
+            self.az = -self.G*(self.ms / self.n1**3 )*(self.rz - self.rs)
+            self.asu = -self.G*(self.mz / self.n2**3 )*(self.rs - self.rz)
 
             self.vz = self.vz + self.az*self.dt
             self.vs = self.vs + self.asu*self.dt
