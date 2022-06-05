@@ -2,54 +2,42 @@ import particle as prt
 import numpy as np
 import matplotlib.pyplot as plt
 
+def const(t):
+    x = 0
+    y = 0
+    z = 0.1
+    return np.array([x, y, z])
 
-def B_const():
-    B = np.array([0, 0, 0.1])
-    return B
+def prom(t):
+    x = 0
+    y = 0
+    z = t/10
+    return np.array([x, y, z])
 
-def B(t):
-    B = np.array([0, 0, t/10])
-    return B
+p1 = prt.Particle()  #e- const
+p2 = prt.Particle()  #e- prom
+p3 = prt.Particle()  #p+ prom
 
-def E_const():
-    E = np.array([0, 0, 0])
-    return E
+p1.set_initial_conditions(const, const, np.array([0.1, 0.1, 0.1]), -1, 1)
+p1.range(20)
 
-def E(t):
-    E = np.array([0, 0, t/10])
-    return E
+p2.set_initial_conditions(prom, prom, np.array([0.1, 0.1, 0.1]), -1, 1)
+p2.range(20)
 
-# elektron const
-p1 = prt.Particle()
-p1.set_initial_conditions(E_const, B_const, np.array([0.1, 0.1, 0.1]), -1, 1)
-x1, y1, z1 = p1.range(10)
-
-
-# elektron promj
-p2 = prt.Particle()
-p2.set_initial_conditions(E, B, np.array([0.1, 0.1, 0.1]), -1, 1)
-x2, y2, z2 = p2.range(10)
-
-
-# pozitron promj
-p3 = prt.Particle()
-p3.set_initial_conditions(E_const, B, np.array([0.1, 0.1, 0.1]), 1, 1)
-x3, y3, z3 = p3.range(10)
-
-
+p3.set_initial_conditions(const, prom, np.array([0.1, 0.1, 0.1]), 1, 1)
+p3.range(20)
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
-ax.plot3D(x1, y1, z1, color="r", label="Konstantno")
-ax.plot3D(x2, y2, z2, color="b", label="Promjenjivo")
+ax.plot3D(p1.x, p1.y, p1.z)
+ax.plot3D(p2.x, p2.y, p2.z)
 ax.view_init(30, 30)
-plt.legend()
 plt.show()
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
-ax.plot3D(x2, y2, z2, color="r", label="Electron")
-ax.plot3D(x3, y3, z3, color="b", label="Positron")
+ax.plot3D(p2.x, p2.y, p2.z)
+ax.plot3D(p3.x, p3.y, p3.z)
 ax.view_init(30, 30)
-plt.legend()
 plt.show()
+
