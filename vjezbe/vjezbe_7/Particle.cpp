@@ -8,8 +8,8 @@ Particle::Particle(double v0, double theta, double x0, double y0)
     t = 0;
     x = x0; 
     y = y0;
-    vy = v0 * sin(theta);
-    vx = v0 * cos(theta);
+    vy = v0 * sin((theta/360)*2*M_PI);
+    vx = v0 * cos((theta/360)*2*M_PI);
 }
 
 void Particle::move()

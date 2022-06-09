@@ -63,6 +63,9 @@ class projectile:
         self.range1(dt)
         return self.x, self.y
 
+
+
+
     def akcx(self, x, v, t):
         return -((self.r * self.c *self.a)/(2*self.m))*(self.vx[-1])**2
 

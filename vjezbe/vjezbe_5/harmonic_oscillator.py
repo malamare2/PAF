@@ -9,7 +9,7 @@ class HarmonicOscillator:
         self.t = []
         self.a = []
     
-    def set_initial_conditions(self, v0, theta, x0, k, m, dt):
+    def set_initial_conditions(self, v0, x0, k, m, dt):
         self.v0 = v0
         self.x0 = x0
         self.k = k
@@ -18,7 +18,7 @@ class HarmonicOscillator:
         
         self.t.append(0)
         self.x.append(0)
-        self.v.append(v0*cos((theta/360)*2*pi))
+        self.v.append(v0)
         self.a.append(0)
 
     def reset(self):
@@ -29,7 +29,7 @@ class HarmonicOscillator:
         self.m = 0
         self.dt = 0
 
-    def oscilate(self, t):
+    def oscilate(self, t):   
         n = int(t/self.dt)
         for i in range(n):
             self.t.append(self.t[-1]+self.dt)
@@ -45,9 +45,8 @@ class HarmonicOscillator:
     def period(self, t):
         self.t, self.x = self.oscilate(t)
         c = max(self.x)
-        d = self.x.index(c)
-        e = self.t[d]
-        T = e*4
+        d = self.x.index(c)  
+        T = self.t[d]*4
         print(T)
 
     def analitickiperiod(self):

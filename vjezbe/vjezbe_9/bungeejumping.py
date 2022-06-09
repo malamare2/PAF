@@ -70,6 +70,7 @@ class BungeeJumping:
     def akceleracija(self):   
         self.el()
         self.otpor_z() 
+        
         a = -self.g + self.a_el + self.a_otpor
         return a
 
