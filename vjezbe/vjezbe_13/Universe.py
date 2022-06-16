@@ -20,22 +20,22 @@ class Planet:
 class Universe:
 
     def __init__(self):
-        self.planeti = []       #lista u koju stavljamo planete
+        self.planeti = []
         self.G = 6.67408*10**(-11)
-        self.dt = 3600*24     #dan u sekundama
+        self.dt = 3600*24
         self.trajanje = 0
 
     def dodavanje(self, planet):
-        self.planeti.append(planet)      
+        self.planeti.append(planet)
 
     def move(self):
-        for p1 in self.planeti:            
-            p1.a = np.array([0, 0])    #tijelo koje se nalazi na početnom položaju(sunce)
+        for p1 in self.planeti:
+            p1.a = np.array([0, 0])
             for p2 in self.planeti:
-                if p1 != p2:       # za svko tijelo različito od sunca
+                if p1 != p2:
 
-                    d = (p1.polozaj - p2.polozaj)**2 #udaljenost
-                    p1.a = p1.a - self.G*(p2.masa / (math.sqrt(d[0] + d[1]))**3 )*(p1.polozaj - p2.polozaj)   #gravitacija između ta dva tijela
+                    d = (p1.polozaj - p2.polozaj)**2
+                    p1.a = p1.a - self.G*(p2.masa / (math.sqrt(d[0] + d[1]))**3 )*(p1.polozaj - p2.polozaj)
 
             p1.v = p1.v + p1.a * self.dt
             p1.polozaj = p1.polozaj + p1.v * self.dt
@@ -48,4 +48,3 @@ class Universe:
         godina = 365.242 * 24 * 60 * 60
         while self.trajanje < godina*t:
             self.move()
-        
